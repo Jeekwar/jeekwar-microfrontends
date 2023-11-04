@@ -4,4 +4,6 @@ import { Component } from '@angular/core';
   selector: 'je-org-root',
   template: '<router-outlet></router-outlet>',
 })
-export class AppComponent {}
+export class AppComponent {
+  
+}

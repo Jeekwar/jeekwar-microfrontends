@@ -11,9 +11,9 @@ export class AppComponent {
 
   constructor(private dataService: DataService) {}
 
-  ngOnInit() {
-    this.dataService.getData().subscribe((data) => {
-      console.log(data);
-    });
-  }
+  // ngOnInit() {
+  //   this.dataService.getData().subscribe((data) => {
+  //     console.log(data);
+  //   });
+  // }
 }

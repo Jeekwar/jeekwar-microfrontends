@@ -1,28 +1,28 @@
 {
-  "name": "graph-remote",
+  "name": "crud-page",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "je-org",
-  "sourceRoot": "apps/host/graph-remote/src",
+  "sourceRoot": "apps/host/crud-page/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/host/graph-remote",
-        "index": "apps/host/graph-remote/src/index.html",
-        "main": "apps/host/graph-remote/src/main.ts",
+        "outputPath": "dist/apps/host/crud-page",
+        "index": "apps/host/crud-page/src/index.html",
+        "main": "apps/host/crud-page/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/host/graph-remote/tsconfig.app.json",
+        "tsConfig": "apps/host/crud-page/tsconfig.app.json",
         "assets": [
-          "apps/host/graph-remote/src/favicon.ico",
-          "apps/host/graph-remote/src/assets"
+          "apps/host/crud-page/src/favicon.ico",
+          "apps/host/crud-page/src/assets"
         ],
-        "styles": ["apps/host/graph-remote/src/styles.css"],
+        "styles": ["apps/host/crud-page/src/styles.css"],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/host/graph-remote/webpack.config.ts"
+          "path": "apps/host/crud-page/webpack.config.ts"
         }
       },
       "configurations": {
@@ -41,7 +41,7 @@
           ],
           "outputHashing": "all",
           "customWebpackConfig": {
-            "path": "apps/host/graph-remote/webpack.prod.config.ts"
+            "path": "apps/host/crud-page/webpack.prod.config.ts"
           }
         },
         "development": {
@@ -63,10 +63,10 @@
       },
       "configurations": {
         "production": {
-          "browserTarget": "graph-remote:build:production"
+          "browserTarget": "crud-page:build:production"
         },
         "development": {
-          "browserTarget": "graph-remote:build:development"
+          "browserTarget": "crud-page:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -74,7 +74,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "graph-remote:build"
+        "browserTarget": "crud-page:build"
       }
     },
     "lint": {
@@ -82,8 +82,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "apps/host/graph-remote/**/*.ts",
-          "apps/host/graph-remote/**/*.html"
+          "apps/host/crud-page/**/*.ts",
+          "apps/host/crud-page/**/*.html"
         ]
       }
     },
@@ -91,7 +91,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/host/graph-remote/jest.config.ts",
+        "jestConfig": "apps/host/crud-page/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -105,16 +105,16 @@
       "executor": "@nx/web:file-server",
       "defaultConfiguration": "production",
       "options": {
-        "buildTarget": "graph-remote:build",
+        "buildTarget": "crud-page:build",
         "port": 4201,
         "watch": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "graph-remote:build:development"
+          "buildTarget": "crud-page:build:development"
         },
         "production": {
-          "buildTarget": "graph-remote:build:production"
+          "buildTarget": "crud-page:build:production"
         }
       }
     }

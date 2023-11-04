@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'graph-remote',
+  displayName: 'crud-page',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/apps/host/graph-remote',
+  coverageDirectory: '../../../coverage/apps/host/crud-page',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

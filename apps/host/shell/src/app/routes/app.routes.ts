@@ -3,9 +3,9 @@ import { Route } from '@angular/router';
 
 export const appRoutes: Route[] = [
   {
-    path: 'graph-remote',
+    path: 'crud-page',
     loadChildren: () =>
-      import('graph-remote/Module').then((m) => m.RemoteEntryModule),
+      import('crud-page/Module').then((m) => m.RemoteEntryModule),
   },
   {
     path: '',

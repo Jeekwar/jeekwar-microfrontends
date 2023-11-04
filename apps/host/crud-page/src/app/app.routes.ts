@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import { FormUserComponent } from './components/form-user/form-user.component';
 
 export const appRoutes: Route[] = [
   {
