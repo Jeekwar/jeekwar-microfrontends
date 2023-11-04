@@ -6,6 +6,9 @@ import { Store } from '@ngrx/store'; // Import Store
 import { AppState } from '../../app.state';
 import { addUser } from '../../store/actions/users.actions';
 import { ToastrService } from 'ngx-toastr';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 
 export interface UsersInterface {
   position: number;
@@ -20,7 +23,7 @@ export interface UsersInterface {
   templateUrl: './table-page.component.html',
   styleUrls: ['./table-page.component.css'],
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatButtonModule, MatDividerModule, MatIconModule],
 })
 export class TablePageComponent {
   private _data: any | undefined = [];
