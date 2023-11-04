@@ -1,26 +1,29 @@
 {
-  "name": "dashboard",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "shell",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "je-org",
-  "sourceRoot": "apps/dashboard/src",
+  "sourceRoot": "apps/host/shell/src",
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/dashboard",
-        "index": "apps/dashboard/src/index.html",
-        "main": "apps/dashboard/src/main.ts",
+        "outputPath": "dist/apps/host/shell",
+        "index": "apps/host/shell/src/index.html",
+        "main": "apps/host/shell/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/dashboard/tsconfig.app.json",
+        "tsConfig": "apps/host/shell/tsconfig.app.json",
         "assets": [
-          "apps/dashboard/src/favicon.ico",
-          "apps/dashboard/src/assets"
+          "apps/host/shell/src/favicon.ico",
+          "apps/host/shell/src/assets"
         ],
-        "styles": ["apps/dashboard/src/styles.css"],
-        "scripts": []
+        "styles": ["apps/host/shell/src/styles.css"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/host/shell/webpack.config.ts"
+        }
       },
       "configurations": {
         "production": {
@@ -36,7 +39,10 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/host/shell/webpack.prod.config.ts"
+          }
         },
         "development": {
           "buildOptimizer": false,
@@ -50,13 +56,17 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nx/angular:module-federation-dev-server",
+      "options": {
+        "port": 4200,
+        "publicHost": "http://localhost:4200"
+      },
       "configurations": {
         "production": {
-          "browserTarget": "dashboard:build:production"
+          "browserTarget": "shell:build:production"
         },
         "development": {
-          "browserTarget": "dashboard:build:development"
+          "browserTarget": "shell:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,7 +74,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "dashboard:build"
+        "browserTarget": "shell:build"
       }
     },
     "lint": {
@@ -72,8 +82,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "apps/dashboard/**/*.ts",
-          "apps/dashboard/**/*.html"
+          "apps/host/shell/**/*.ts",
+          "apps/host/shell/**/*.html"
         ]
       }
     },
@@ -81,7 +91,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/dashboard/jest.config.ts",
+        "jestConfig": "apps/host/shell/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {

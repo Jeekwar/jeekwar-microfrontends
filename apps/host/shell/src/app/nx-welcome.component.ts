@@ -1,10 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'je-org-nx-welcome',
-  standalone: true,
-  imports: [CommonModule],
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -423,7 +420,7 @@ import { CommonModule } from '@angular/common';
         <div id="welcome">
           <h1>
             <span> Hello there, </span>
-            Welcome dashboard 👋
+            Welcome shell 👋
           </h1>
         </div>
         <!--  HERO  -->

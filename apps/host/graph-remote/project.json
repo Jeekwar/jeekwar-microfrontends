@@ -1,0 +1,122 @@
+{
+  "name": "graph-remote",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "je-org",
+  "sourceRoot": "apps/host/graph-remote/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/host/graph-remote",
+        "index": "apps/host/graph-remote/src/index.html",
+        "main": "apps/host/graph-remote/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/host/graph-remote/tsconfig.app.json",
+        "assets": [
+          "apps/host/graph-remote/src/favicon.ico",
+          "apps/host/graph-remote/src/assets"
+        ],
+        "styles": ["apps/host/graph-remote/src/styles.css"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/host/graph-remote/webpack.config.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/host/graph-remote/webpack.prod.config.ts"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "graph-remote:build:production"
+        },
+        "development": {
+          "browserTarget": "graph-remote:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "graph-remote:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/host/graph-remote/**/*.ts",
+          "apps/host/graph-remote/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/host/graph-remote/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "graph-remote:build",
+        "port": 4201,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "graph-remote:build:development"
+        },
+        "production": {
+          "buildTarget": "graph-remote:build:production"
+        }
+      }
+    }
+  }
+}
