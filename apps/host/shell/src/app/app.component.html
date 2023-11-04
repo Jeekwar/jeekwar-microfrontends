@@ -1,10 +1,15 @@
 <main>
   <div style="width: 100%; height: 100vh; display: flex">
-    <div style="width: 25%; background-color: antiquewhite">
-      <ul class="remote-menu" style="list-style: none">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="crud-page">CRUD Page</a></li>
-      </ul>
+    <div class="side-bar">
+      <div class="menu-list-wrapper">
+        <a routerLink="/" [ngClass]="{ 'active-link': isHomePage }" class="menu"
+          >Home</a
+        >
+
+        <a routerLink="crud-page" [ngClass]="{ 'active-link': !isHomePage }"
+          >CRUD Page</a
+        >
+      </div>
     </div>
     <div class="wrapper-layout">
       <Header>
