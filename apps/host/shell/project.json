@@ -19,7 +19,10 @@
           "apps/host/shell/src/favicon.ico",
           "apps/host/shell/src/assets"
         ],
-        "styles": ["apps/host/shell/src/styles.css"],
+        "styles": [
+          "apps/host/shell/src/styles.css",
+          "node_modules/ngx-toastr/toastr.css"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/host/shell/webpack.config.ts"

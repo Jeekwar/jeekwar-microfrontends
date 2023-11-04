@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store'; // Import Store
 import { AppState } from '../../app.state';
 import { addUser } from '../../store/actions/users.actions';
+import { ToastrService } from 'ngx-toastr';
 
 export interface UsersInterface {
   position: number;
@@ -27,7 +28,8 @@ export class TablePageComponent {
   constructor(
     private dataService: DataService,
     private router: Router,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -69,6 +71,7 @@ export class TablePageComponent {
   deleteUser(user: any) {
     this.dataService.deleteData(user.position).subscribe((res) => {
       console.log('Successfully deleted ');
+      this.toastr.success('Success', 'Successfully deleted ');
     });
   }
 

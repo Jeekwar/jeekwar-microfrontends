@@ -11,10 +11,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormUserComponent } from '../components/form-user/form-user.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from '../app.state';
+import { ToastrModule, provideToastr } from 'ngx-toastr';
 
 @NgModule({
   declarations: [RemoteEntryComponent, FormUserComponent],
   imports: [
+    ToastrModule.forRoot(), // ToastrModule added
     ReactiveFormsModule,
     TablePageComponent,
     CommonModule,
