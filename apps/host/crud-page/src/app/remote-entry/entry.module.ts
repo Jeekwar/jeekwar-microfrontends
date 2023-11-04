@@ -14,8 +14,9 @@ import { reducers } from '../app.state';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 
 @NgModule({
-  declarations: [RemoteEntryComponent, FormUserComponent],
+  declarations: [RemoteEntryComponent],
   imports: [
+    FormUserComponent,
     ToastrModule.forRoot(), // ToastrModule added
     ReactiveFormsModule,
     TablePageComponent,

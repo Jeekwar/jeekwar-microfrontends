@@ -1,0 +1,26 @@
+.form-wrapper {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-field {
+  width: 100%;
+}
+
+input {
+  height: 24px;
+}
+
+.validation-messages {
+  color: red;
+  font-size: 12px !important;
+}

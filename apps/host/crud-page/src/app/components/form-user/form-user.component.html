@@ -1,16 +1,22 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form-wrapper">
   <div *ngFor="let field of fields">
-    <label [for]="field.name">{{ field.label }}:</label>
-    <input
-      [type]="field.type"
-      [id]="field.name"
-      [formControlName]="field.name"
-    />
-    <div
-      *ngIf="myForm.get(field.name)?.invalid && myForm.get(field.name)?.touched"
-    >
-      {{ field.label }} is Required
-    </div>
+    <mat-form-field class="form-field">
+      <input
+        height="24px"
+        [type]="field.type"
+        [id]="field.name"
+        matInput
+        [formControlName]="field.name"
+        placeholder="{{ field.label }}"
+      />
+
+      <mat-error
+        *ngIf="myForm.get(field.name)?.hasError('required')"
+        class="validation-messages"
+      >
+        {{ field.label }} <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
   </div>
 
   <button type="submit" [disabled]="myForm.invalid">Submit</button>
