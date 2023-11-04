@@ -1,4 +1,4 @@
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { GraphDummyComponent } from '../components/graph-dummy/graph-dummy.component';
 import { Route } from '@angular/router';
 
 export const appRoutes: Route[] = [
@@ -9,6 +9,6 @@ export const appRoutes: Route[] = [
   },
   {
     path: '',
-    component: NxWelcomeComponent,
+    component: GraphDummyComponent,
   },
 ];
