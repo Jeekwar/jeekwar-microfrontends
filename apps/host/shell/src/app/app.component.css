@@ -3,12 +3,36 @@
 * {
   font-family: 'Fredoka', sans-serif;
 }
-Header {
-  background-color: antiquewhite;
-}
-/* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
 
-/* position */
+.wrapper-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.content-wrapper {
+  padding: 8px;
+  flex-grow: 1;
+}
+
+header {
+  background-color: rgb(17, 119, 209);
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+footer {
+  background-color: rgb(21, 21, 21);
+  height: 44px;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Toast CSS */
 .toast-center-center {
   top: 50%;
   left: 50%;
