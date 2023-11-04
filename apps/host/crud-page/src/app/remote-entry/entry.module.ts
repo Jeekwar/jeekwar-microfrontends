@@ -17,7 +17,7 @@ import { ToastrModule, provideToastr } from 'ngx-toastr';
   declarations: [RemoteEntryComponent],
   imports: [
     FormUserComponent,
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot(),
     ReactiveFormsModule,
     TablePageComponent,
     CommonModule,

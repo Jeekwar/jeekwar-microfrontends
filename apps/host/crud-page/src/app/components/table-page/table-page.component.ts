@@ -43,7 +43,6 @@ export class TablePageComponent {
   }
 
   get data(): any {
-    console.log('get data:', this._data);
     return this._data;
   }
 
@@ -67,7 +66,7 @@ export class TablePageComponent {
         website: user.website,
       })
     );
-    // console.log({ user });
+
     this.router.navigate(['/crud-page/detail']);
   }
   // Important: resource will not be really updated on the server but it will be faked by response code

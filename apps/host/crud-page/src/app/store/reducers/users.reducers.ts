@@ -23,7 +23,6 @@ export const initialState: User = {
 const userReducer = createReducer(
   initialState,
   on(UserActions.addUser, (state, user) => {
-    console.log('reducers', { user, state });
     return {
       ...state,
       ...user,

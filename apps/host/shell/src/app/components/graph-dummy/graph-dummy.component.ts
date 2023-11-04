@@ -8,8 +8,6 @@ import * as echarts from 'echarts';
 })
 export class GraphDummyComponent {
   ngOnInit() {
-    console.log('graph');
-
     type EChartsOption = echarts.EChartsOption;
 
     var chartDom = document.getElementById('graph-dummy')!;

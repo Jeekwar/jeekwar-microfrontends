@@ -88,17 +88,14 @@ export class FormUserComponent implements OnInit {
   ) {
     const formControls: Record<string, any> = {};
     this.fields.forEach((field) => {
-      // formControls[field.name] =  ['', field.validation];
       formControls[field.name] = new FormControl('', field.validation);
     });
     this.myForm = this.formBuilder.group(formControls);
   }
 
   ngOnInit() {
-    // Metode ngOnInit
     this.store.pipe(select(selectUser)).subscribe((user: any) => {
       this.myForm.patchValue(user);
-      console.log({ user });
     });
   }
 
@@ -113,11 +110,10 @@ export class FormUserComponent implements OnInit {
           .pipe(
             catchError((error) => {
               this.toastr.error('Failed', 'Data is failed to Edit');
-              return throwError('Something went wrong!'); // Mengembalikan observable dari kesalahan
+              return throwError('Something went wrong!');
             })
           )
           .subscribe((response) => {
-            console.log('PUT request was successful', response);
             this.toastr.success('Success', 'Data is successfully edited');
           });
       } else {
@@ -126,7 +122,7 @@ export class FormUserComponent implements OnInit {
           .pipe(
             catchError((error) => {
               this.toastr.error('Failed', 'Data is failed to submit');
-              return throwError('Something went wrong!'); // Mengembalikan observable dari kesalahan
+              return throwError('Something went wrong!');
             })
           )
           .subscribe((response) => {
